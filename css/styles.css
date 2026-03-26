@@ -1,0 +1,301 @@
+/* =========================================================== */
+/* ==          SYSTEME DE DESIGN - A.J.D.NA 2026            == */
+/* =========================================================== */
+
+:root {
+    /* Identité visuelle : Vert Espoir & Jaune Énergie */
+    --primary: #27ae60;         /* Vert pour l'environnement et l'espoir */
+    --primary-dark: #1e8449;
+    --secondary: #2c3e50;      /* Bleu nuit pour le sérieux et l'institutionnel */
+    --accent: #f1c40f;         /* Jaune pour le dynamisme de la jeunesse */
+    
+    /* Neutres */
+    --white: #ffffff;
+    --light-bg: #f4f7f6;       /* Gris très léger pour le fond des sections */
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --border: #e0e0e0;
+
+    /* Effets */
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+/* ----- 1. Reset & Base ------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+/* ----- 2. Header & Navigation ------- */
+header {
+    background: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo img {
+    height: 60px;
+    transition: var(--transition);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+/* ----- 3. Sections & Hero ------- */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                url('images/hero-nasso.jpg') center/cover no-repeat;
+    color: var(--white);
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+/* ----- 4. Grilles & Cartes (Cards) ------- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Gestion des images dans les cartes d'actions */
+.action-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit le cadre sans déformation */
+    border-radius: 10px;
+}
+
+/* ----- 5. Formulaire de Contact & Adhésion ------- */
+.contact-form-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+.btn-submit, .btn-main {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-submit:hover, .btn-main:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* ----- 6. Footer (Ajusté & Responsive) ------- */
+footer {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    /* auto-fit permet de passer de 4 à 1 colonne automatiquement selon l'écran */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.footer-logo-img {
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.footer-about p, .footer-contact p, .footer-info p, .footer-admin p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.3rem;
+    margin-right: 15px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}
+
+/* Nouveau style pour le bloc Administrateur dans le footer */
+.btn-admin-contact {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-admin-contact:hover {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ----- 7. Responsive ------- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    
+    .footer-grid {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        display: flex;
+    }
+}
