@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. GESTION DU MENU BURGER MOBILE                       //
     // ====================================================== //
     const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
-    const primaryNav = document.querySelector(".main-nav");
+   const primaryNav = document.querySelector(".nav-links");
 
     if (mobileNavToggle && primaryNav) {
         mobileNavToggle.addEventListener("click", () => {
