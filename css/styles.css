@@ -279,7 +279,7 @@ footer {
         display: none; /* Caché par défaut */
         flex-direction: column;
         position: absolute;
-        top: 75px; /* Juste sous le header */
+        top: 70px; /* Juste sous le header */
         left: 0;
         width: 100%;
         background-color: var(--white);
@@ -287,12 +287,14 @@ footer {
         gap: 20px;
         text-align: center;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        z-index: 1000;
+        z-index: 9999;
     }
 
     /* Classe activée par le JavaScript */
     .nav-links.nav-open {
-        display: flex !important;
+    display: flex !important; /* Force l'affichage */
+    visibility: visible !important;
+    opacity: 1 !important;
     }
 
     .hero h1 {
